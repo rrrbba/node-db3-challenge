@@ -26,7 +26,9 @@ order by ProductName;
 
 select [Order].Id, 
 Customer.CompanyName, 
-Employee.LastName
+Employee.LastName as Employee
 from [Order]
+--select OrderId, CustomerName, LastName from [Orders] same as above
 join Customer, Employee where [Order].CustomerId = Customer.Id
 and [Order].EmployeeId = Employee.Id;
+
