@@ -20,9 +20,12 @@ function findById(id) {
     .first();
 }
 
+//if scheme id return steps related to that scheme id
 function findSteps(id) {
     return db('schemes')
     .join("steps", "schemes.id", "steps.scheme_id") 
+    //joining steps table (join Steps on Schemes.Id = Steps.Scheme_Id)
+    //where the two tables are similar
     .select("steps.id", "schemes.scheme_name", "steps.step_number","steps.instructions")
     .where({ scheme_id: id })
 }
