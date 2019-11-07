@@ -45,7 +45,12 @@ function update(change, id) {
 };
 
 function remove(id) {
-    return db('schemes')
-    .where({ id })
-    .del();
+    return findById(id)
+    .then(scheme => {
+       return db('schemes')
+        .where({ id })
+        .del()
+        .then(() => scheme);
+    })
+   
 }
