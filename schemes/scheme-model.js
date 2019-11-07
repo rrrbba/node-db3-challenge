@@ -30,6 +30,8 @@ function findSteps(id) {
     .where({ scheme_id: id })
 }
 
+//Number(id) turns the "string" into a number on scheme_id
+
 function add(scheme) {
     return db('schemes')
     .insert(scheme)
